@@ -29,7 +29,7 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cIR-m2-1QO">
                                                     <rect key="frame" x="0.0" y="0.0" width="26" height="30"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -44,6 +44,9 @@
                                                     </connections>
                                                 </button>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="cIR-m2-1QO" firstAttribute="centerY" secondItem="iYQ-q4-fW0" secondAttribute="centerY" id="fqy-aJ-sjL"/>
+                                            </constraints>
                                         </stackView>
                                     </subviews>
                                     <constraints>

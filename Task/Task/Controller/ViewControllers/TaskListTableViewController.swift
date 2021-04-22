@@ -39,7 +39,7 @@ class TaskListTableViewController: UITableViewController {
         let task = TaskController.sharedInstance.tasks[indexPath.row]
         
         cell.delegate = self
-        cell.updateViews()
+        cell.task = task
 
         return cell
     }
