@@ -21,7 +21,6 @@ class TaskController {
         saveToPersistenceStorage()
     }
     
-    
     func update(task: Task, name: String, notes: String?, dueDate: Date?) {
         task.name = name
         task.notes = notes

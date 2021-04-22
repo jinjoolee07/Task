@@ -8,14 +8,10 @@
 import UIKit
 
 class TaskListTableViewController: UITableViewController {
-    
-    let task: Task? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         TaskController.sharedInstance.loadFromPersistenceStore()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -30,6 +26,9 @@ class TaskListTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
+            let taskToDelete = TaskController.sharedInstance.tasks[indexPath.row]
+            TaskController.sharedInstance.delete(task: taskToDelete)
+            
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
@@ -45,14 +44,11 @@ class TaskListTableViewController: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let destinationVC = segue.destination as? TaskDetailViewController else { return }
-        destinationVC.task = task
-        
         if segue.identifier == "toDetailVC" {
-            if let index = tableView.indexPathForSelectedRow {
-                let taskToSend = TaskController.sharedInstance.tasks[index.row]
-                destinationVC.task = taskToSend
-            }
+            guard let index = tableView.indexPathForSelectedRow,
+                  let destination = segue.destination as? TaskDetailViewController else { return }
+            let task = TaskController.sharedInstance.tasks[index.row]
+            destination.task = task
         }
     }
 }
