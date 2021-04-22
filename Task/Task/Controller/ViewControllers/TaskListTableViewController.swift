@@ -38,6 +38,7 @@ class TaskListTableViewController: UITableViewController {
 
         let task = TaskController.sharedInstance.tasks[indexPath.row]
         
+        cell.delegate = self
         cell.updateViews()
 
         return cell
@@ -57,9 +58,9 @@ class TaskListTableViewController: UITableViewController {
     }
 }
 
-extension TaskListTableViewController: taskTableViewCellDelegate {
-    func completeButtonTapped(for cell: TaskTableViewCell) {
-        guard let indexPath = tableView.indexPath(for: cell) else { return }
+extension TaskListTableViewController: taskCompletionDelegate {
+    func taskCellButtonTapped(_ sender: TaskTableViewCell) {
+        guard let indexPath = tableView.indexPath(for: sender) else { return }
         let task = TaskController.sharedInstance.tasks[indexPath.row]
         TaskController.sharedInstance.toggleIsComplete(task: task)
     }

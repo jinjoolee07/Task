@@ -25,7 +25,9 @@ class TaskTableViewCell: UITableViewCell {
     }
     
     @IBAction func completeButtonTapped(_ sender: Any) {
-        
+        if let delegate = delegate {
+            delegate.taskCellButtonTapped(self)
+        }
     }
     
     func updateViews() {
