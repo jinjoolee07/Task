@@ -8,16 +8,30 @@
 import UIKit
 
 class TaskTableViewCell: UITableViewCell {
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    
+    @IBOutlet weak var taskNameLabel: UILabel!
+    @IBOutlet weak var completeButton: UIButton!
+    
+    var task: Task? {
+        didSet {
+            updateViews()
+        }
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    func updateViews() {
+        guard let task = task else { return }
+        taskNameLabel.text = task.name
+        
+        if task.isComplete {
+            let incompleteButtonImage = UIImage(named: "incomplete")
+            completeButton.setBackgroundImage(incompleteButtonImage, for: UIControl.State.normal)
+        } else {
+            let completeButtonImage = UIImage(named: "complete")
+            completeButton.setBackgroundImage(completeButtonImage, for: UIControl.State.normal)
+        }
     }
-
+    
+    @IBAction func completeButtonTapped(_ sender: Any) {
+        
+    }
 }

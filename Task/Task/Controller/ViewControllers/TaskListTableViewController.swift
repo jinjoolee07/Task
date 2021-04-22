@@ -34,13 +34,17 @@ class TaskListTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "taskCell", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "taskCell", for: indexPath) as? TaskTableViewCell else { return UITableViewCell()}
 
         let task = TaskController.sharedInstance.tasks[indexPath.row]
         
-        cell.textLabel?.text = task.name
+        cell.updateViews()
 
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return view.frame.height / 7
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

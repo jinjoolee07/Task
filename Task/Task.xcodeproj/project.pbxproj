@@ -16,6 +16,7 @@
 		A2A7AE312630BA7600F20916 /* TaskDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A7AE302630BA7600F20916 /* TaskDetailViewController.swift */; };
 		A2A7AE342630BD0E00F20916 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A7AE332630BD0E00F20916 /* Task.swift */; };
 		A2A7AE372630BD9D00F20916 /* TaskController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A7AE362630BD9D00F20916 /* TaskController.swift */; };
+		A2A7AE402630F68900F20916 /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A7AE3F2630F68900F20916 /* TaskTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		A2A7AE302630BA7600F20916 /* TaskDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailViewController.swift; sourceTree = "<group>"; };
 		A2A7AE332630BD0E00F20916 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		A2A7AE362630BD9D00F20916 /* TaskController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskController.swift; sourceTree = "<group>"; };
+		A2A7AE3F2630F68900F20916 /* TaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +138,7 @@
 		A2A7AE2B2630B91A00F20916 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				A2A7AE3F2630F68900F20916 /* TaskTableViewCell.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -210,6 +213,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A2A7AE402630F68900F20916 /* TaskTableViewCell.swift in Sources */,
 				A2A7AE2D2630B94600F20916 /* TaskListTableViewController.swift in Sources */,
 				7EC8F555259B5AAD003641BD /* AppDelegate.swift in Sources */,
 				A2A7AE342630BD0E00F20916 /* Task.swift in Sources */,
