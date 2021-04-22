@@ -58,10 +58,11 @@ class TaskListTableViewController: UITableViewController {
     }
 }
 
-extension TaskListTableViewController: taskCompletionDelegate {
+extension TaskListTableViewController: TaskCompletionDelegate {
     func taskCellButtonTapped(_ sender: TaskTableViewCell) {
         guard let indexPath = tableView.indexPath(for: sender) else { return }
         let task = TaskController.sharedInstance.tasks[indexPath.row]
         TaskController.sharedInstance.toggleIsComplete(task: task)
+        tableView.reloadRows(at: [indexPath], with: .automatic)
     }
 }

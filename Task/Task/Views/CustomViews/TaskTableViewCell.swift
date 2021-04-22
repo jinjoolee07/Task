@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol taskCompletionDelegate: class {
+protocol TaskCompletionDelegate: class {
     func taskCellButtonTapped(_ sender: TaskTableViewCell)
 }
 
@@ -16,7 +16,7 @@ class TaskTableViewCell: UITableViewCell {
     @IBOutlet weak var taskNameLabel: UILabel!
     @IBOutlet weak var completeButton: UIButton!
     
-    weak var delegate: taskCompletionDelegate?
+    weak var delegate: TaskCompletionDelegate?
     
     var task: Task? {
         didSet {
