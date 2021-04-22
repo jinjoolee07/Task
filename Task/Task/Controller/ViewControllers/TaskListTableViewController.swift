@@ -57,3 +57,10 @@ class TaskListTableViewController: UITableViewController {
     }
 }
 
+extension TaskListTableViewController: taskTableViewCellDelegate {
+    func completeButtonTapped(for cell: TaskTableViewCell) {
+        guard let indexPath = tableView.indexPath(for: cell) else { return }
+        let task = TaskController.sharedInstance.tasks[indexPath.row]
+        TaskController.sharedInstance.toggleIsComplete(task: task)
+    }
+}

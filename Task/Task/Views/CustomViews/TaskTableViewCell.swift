@@ -7,10 +7,16 @@
 
 import UIKit
 
+protocol taskCompletionDelegate: class {
+    func taskCellButtonTapped(_ sender: TaskTableViewCell)
+}
+
 class TaskTableViewCell: UITableViewCell {
     
     @IBOutlet weak var taskNameLabel: UILabel!
     @IBOutlet weak var completeButton: UIButton!
+    
+    weak var delegate: taskCompletionDelegate?
     
     var task: Task? {
         didSet {
@@ -18,20 +24,19 @@ class TaskTableViewCell: UITableViewCell {
         }
     }
     
+    @IBAction func completeButtonTapped(_ sender: Any) {
+        
+    }
+    
     func updateViews() {
         guard let task = task else { return }
         taskNameLabel.text = task.name
         
         if task.isComplete {
-            let incompleteButtonImage = UIImage(named: "incomplete")
-            completeButton.setBackgroundImage(incompleteButtonImage, for: UIControl.State.normal)
+            completeButton.setBackgroundImage(UIImage(named: "incomplete"), for: UIControl.State.normal)
         } else {
-            let completeButtonImage = UIImage(named: "complete")
-            completeButton.setBackgroundImage(completeButtonImage, for: UIControl.State.normal)
+            completeButton.setBackgroundImage(UIImage(named: "complete"), for: UIControl.State.normal)
         }
     }
     
-    @IBAction func completeButtonTapped(_ sender: Any) {
-        
-    }
 }
